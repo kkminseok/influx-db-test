@@ -38,9 +38,13 @@ public class InfluxDBConnectionLiveTest {
     void testWriteData() {
         // WriteApiBlocking을 사용하여 데이터를 InfluxDB에 쓴다.
         WriteApiBlocking writeApi = client.getWriteApiBlocking();
-        Point point = Point.measurement("cpu_usage")
-                .addTag("host", "server1")
-                .addField("value", 75.5)
+//        Point point = Point.measurement("cpu_usage")
+//                .addTag("host", "server1")
+//                .addField("value", 75.5)
+//                .time(Instant.now(), WritePrecision.NS);
+        Point point = Point.measurement("tick")
+                .addTag("company", "toss")
+                .addField("currentPrice", 150)
                 .time(Instant.now(), WritePrecision.NS);
         writeApi.writePoint(point);
         System.out.println("✅ 데이터 쓰기 완료!");

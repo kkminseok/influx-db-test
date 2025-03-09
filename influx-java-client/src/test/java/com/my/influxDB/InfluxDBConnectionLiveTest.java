@@ -21,9 +21,9 @@ public class InfluxDBConnectionLiveTest {
 
     // InfluxDB 2.x 접속 정보
     private static final String URL = "http://localhost:8086"; // InfluxDB 서버 주소
-    private static final String TOKEN = "UEoxmc--ADNRMXy2x_vj8YDX86DrhU7haqn5lIle8t7zdjK-vuus8SFzuhZTvweSOjflW4bx9HlUBmAQJ41E8A=="; // 생성한 API 토큰
-    private static final String ORG = "minseok"; // 생성한 조직 이름
-    private static final String BUCKET = "bucket"; // 데이터가 저장될 버킷 이름
+    private static final String TOKEN = "my-secret-token"; // 생성한 API 토큰
+    private static final String ORG = "donny"; // 생성한 조직 이름
+    private static final String BUCKET = "donny-bucket"; // 데이터가 저장될 버킷 이름
 
     private static InfluxDBClient client;
 

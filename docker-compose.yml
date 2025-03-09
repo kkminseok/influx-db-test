@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  influxdb:
+    image: influxdb:latest
+    container_name: influxdb
+    ports:
+      - "8086:8086"  # InfluxDB API 포트
+    volumes:
+      - influxdb_data:/var/lib/influxdb2
+    environment:
+      - INFLUXDB_ADMIN_USER=admin
+      - INFLUXDB_ADMIN_PASSWORD=admin123
+      - INFLUXDB_HTTP_AUTH_ENABLED=true
+      - INFLUXDB_USER=kms
+      - INFLUXDB_USER_PASSWORD=kms123
+    restart: unless-stopped
+  
+  influxdb_setup:
+    image: influxdb:latest
+    depends_on:
+      - influxdb
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        influx setup --host http://influxdb:8086 \
+          --bucket donny-bucket \
+          --org donny \
+          --username admin \
+          --password admin123 \
+          --token my-secret-token \
+          --force
+    restart: on-failure
+
+volumes:
+  influxdb_data:

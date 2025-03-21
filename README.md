@@ -7,7 +7,7 @@ flowchart TD
     K2[application-rabbitmq] --> R[rabbitMQ]
     A[kafka] --> B[Spring Boot]
     R[rabbitMQ] --> B[Spring Boot]
-    B[Spring Boot] --> C[Influx DB]
+    B[Spring Boot & Batch] --> C[Influx DB]
   
 ```
 

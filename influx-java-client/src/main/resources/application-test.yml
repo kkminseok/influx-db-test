@@ -1,0 +1,6 @@
+influx:
+  db:
+    url: http://localhost:8086
+    token: my-secret-token
+    org: donny
+    bucket: donny-bucket

@@ -52,11 +52,7 @@ public class InfluxDBCreateMeasurementTest {
         WriteApiBlocking writeApi = client.getWriteApiBlocking();
         Point point = Point.measurement("toss")
                 .addTag("date", "2025-01-01")
-                .addField("current_price", 150)
-                .addField("high_price",197.4100)
-                .addField("low_price", 197.2800)
-                .addField("close_price", 197.4100)
-                .addField("open_price", 197.3400)
+                .addField("stock", "244")
                 .time(Instant.now(), WritePrecision.NS);
         writeApi.writePoint(point);
     }
@@ -68,6 +64,11 @@ public class InfluxDBCreateMeasurementTest {
                 .addTag("date", "2025-01-01")
                 .addField("SMA", 340)
                 .addField("EMA",200)
+                .addField("current_price", 150)
+                .addField("high_price",197.4100)
+                .addField("low_price", 197.2800)
+                .addField("close_price", 197.4100)
+                .addField("open_price", 197.3400)
                 .time(Instant.now(), WritePrecision.NS);
         writeApi.writePoint(point);
     }

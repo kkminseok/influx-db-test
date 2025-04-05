@@ -12,11 +12,6 @@ public class TickerService extends TickerServiceGrpc.TickerServiceImplBase {
 
 
     @Override
-    public void WatchRealtime() {
-
-    }
-
-    @Override
     public void watchRealtime(TickerServiceProto.TickerWatchRequest request, StreamObserver<TickerRtProto.TickerRt> responseObserver) {
         // 여기에 원하는 gRPC 처리 로직을 작성
         TickerRtProto.TickerRt response = TickerRtProto.TickerRt.newBuilder()

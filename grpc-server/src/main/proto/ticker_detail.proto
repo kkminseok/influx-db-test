@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package donny;
+
+option go_package = "github.com/toybrix/donny/pkg/gen/donny";
+option java_package = "org.toybrix.donny";
+option java_outer_classname = "TickerDetailProto";
+
+message TickerDetail {
+  string rsym = 1;  // 실시간조회종목코드 "DNASTSLA"
+  int32 zdiv = 2;  // 소수점자리수 "4"
+  string curr = 3;  // 통화 "USD"
+  int32 vnit = 4;  // 매매단위 "1"
+  float open = 5;  // 시가 "257.2600"
+  float high = 6;  // 고가 "259.0794"
+  float low = 7; // 저가 "242.0100"
+  float last = 8;  // 현재가 "245.0100"
+  float base = 9;  // 전일종가 "258.0800"
+  float pvol = 10;  // 전일거래량 "108861698"
+  float pamt = 11;  // 전일거래대금 "28090405673"
+  float uplp = 12;  // 상한가 "0.0000"
+  float dnlp = 13;  // 하한가 "0.0000"
+  float h52p = 14;  // 52주최고가 "313.8000"
+  string h52d = 15;  // 52주최고일자 "20220921"
+  float l52p = 16;  // 52주최저가 "101.8100"
+  string l52d = 17;  // 52주최저일자 "20230106"
+  float perx = 18;  // PER "69.51"
+  float pbrx = 19;  // PBR "15.21"
+  float epsx = 20;  // EPS "3.52"
+  float bpsx = 21;  // BPS "16.11"
+  int64 shar = 22;  // 상장주수 "3173990000"
+  float mcap = 23;  // 자본금 "3000000"
+  float tomv = 24;  // 시가총액 "777659289900"
+  float t_xprc = 25;  // 원환산당일가격 "323658"
+  float t_xdif = 26;  // 원환산당일대비 "17265"
+  float t_xrat = 27;  // 원환산당일등락 "-5.06"
+  float p_xprc = 28;  // 원환산전일가격 "0"
+  float p_xdif = 29;  // 원환산전일대비 "0"
+  float p_xrat = 30;  // 원환산전일등락 " 0.00"
+  float t_rate = 31;  // 당일환율 "1321.00"
+  float p_rate = 32;  // 전일환율 ""
+  int32 t_xsgn = 33;  // 원환산당일기호 "5"
+  int32 p_xsng = 34;  // 원환산전일기호 "3"
+  string e_ordyn = 35; // 거래가능여부 "매매 가능"
+  string e_hogau = 36; // 호가단위 "0.0100"
+  string e_icod = 37;  // 업종(섹터) "자동차"
+  string e_parp = 38;  // 액면가 "0.0000"
+  int64 tvol = 39;  // 거래량 "132541640"
+  float tamt = 40;  // 거래대금 "32907071789"
+  string etyp_nm = 41; // ETP 분류명 ""
+}

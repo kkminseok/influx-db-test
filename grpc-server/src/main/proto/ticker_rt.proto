@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package donny;
+
+option go_package = "github.com/toybrix/donny/pkg/gen/donny";
+option java_package = "org.toybrix.donny";
+option java_outer_classname = "TickerRtProto";
+
+message TickerRt {
+  string  r_sym = 1;   // 실시간종목코드
+  string  symbol = 2;  // 종목코드
+  int32   zdiv = 3;    // 소숫점자리수
+  string  x_date = 4;  // 현지일자
+  string  x_time = 5;  // 현지시간
+  string  kr_date = 6; // 한국일자
+  string  kr_time = 7; // 한국시간
+  int64   bvol = 8;    // 매수총잔량
+  int64   avol = 9;    // 매도총잔량
+  float   bdvl = 10;   // 매수총잔량대비
+  float   advl = 11;   // 매도총잔량대비
+  repeated TickerPrice price_list = 12;   // 실시간 10호가
+}
+
+
+message TickerPrice {
+  float pbid1 = 1;    // 매수 호가
+  float pask1 = 2;    // 매도 호가
+  float vbid1 = 3;	  // 매수 잔량
+  float vask1 = 4;    // 매도 잔량
+  float dbid1 = 5;    // 매수 잔량 대비
+  float dask1 = 6;    // 매도 잔량 대비
+}

@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package donny;
+
+import "ticket.proto";
+import "ticker_rt.proto";
+import "ticker_detail.proto";
+
+option go_package = "github.com/toybrix/donny/pkg/gen/donny";
+option java_package = "org.toybrix.donny";
+option java_outer_classname = "TickerServiceProto";
+
+service TickerService {
+  //    rpc WatchRealtime(TickerWatchRequest) returns (stream Ticker);
+  rpc WatchRealtime(TickerWatchRequest) returns (stream TickerRt);
+
+  // GetPrice refer to https://apiportal.koreainvestment.com/apiservice/apiservice-oversea-stock-quotations
+  rpc GetDetailPrice(GetPriceRequest) returns (TickerDetail);
+}
+
+message TickerWatchRequest {
+  string symbol = 1;
+}
+
+message GetPriceRequest {
+  string symbol = 1;
+}

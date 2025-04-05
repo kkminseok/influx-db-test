@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package donny;
+
+option go_package = "github.com/toybrix/donny/pkg/gen/donny";
+option java_package = "org.toybrix.donny";
+option java_outer_classname = "TickerProto";
+
+message Ticker {
+  // symb (종목코드)
+  string symbol = 1;
+  // rsym (실시간조회종목코드)
+  string realtime_symbol = 2;
+  // last (현재가)
+  float last_price = 3;
+  // sign (대비 기호)
+  DiffSign diff_sign = 4;
+  // diff (대비)
+  float diff = 5;
+  // rate (등락율)
+  float rate = 6;
+}
+
+enum DiffSign {
+  DiffSign_NotSet = 0;
+  DiffSign_UpperLimit = 1;
+  DiffSign_Rise = 2;
+  DiffSign_NoChange = 3;
+  DiffSign_LowerLimit = 4;
+  DiffSign_Fall = 5;
+}
